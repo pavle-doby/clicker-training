@@ -1,0 +1,21 @@
+@mixin fontFace($style) {
+	@font-face {
+		// TODO: Set this to font you want to use
+		// font-family: 'Work Sans';
+		// TODO: Download that font and set url to font here
+		// src: url('~@/assets/fonts/work-sans/WorkSans-#{$style}.ttf');
+		@content;
+	}
+}
+
+/* stylelint-disable-next-line */
+@include fontFace(Regular) {
+}
+
+@include fontFace(SemiBold) {
+	font-weight: bold;
+}
+
+@include fontFace(Medium) {
+	font-weight: 500;
+}

@@ -1,0 +1,19 @@
+/**
+  * Add transition to multiple properties at once.
+  * @example
+  * @include transition('transform, color', .3s);
+ */
+@mixin transition($properties, $duration, $timing: ease-in-out, $delay: 0) {
+	$ps: split($properties, ',');
+
+	@if (length($ps) > 1) {
+		transition-property: #{$properties};
+		transition-duration: #{$duration};
+		transition-timing-function: #{$timing};
+		@if ($delay > 0) {
+			transition-delay: #{$delay};
+		}
+	} @else {
+		transition: #{$properties} #{$duration} #{$timing} if($delay > 0, #{$delay}, null);
+	}
+}

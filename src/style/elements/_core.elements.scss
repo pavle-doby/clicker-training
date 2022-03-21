@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $global-font-size;
+  font-weight: $global-font-weight;
+  letter-spacing: $global-letter-spacing;
+}
+
+body {
+  position: relative;
+  display: flex;
+  margin: 0;
+  background-color: #f0f0f0;
+  color: $global-font-color;
+  font-family: $global-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+// TODO: Uncomment if thi is ok for your project
+
+// p {
+// 	margin: 0;
+// 	& + p {
+// 		margin-top: 1em;
+// 	}
+// }
+
+// a {
+// 	color: inherit;
+// 	text-decoration: none;
+// }
+
+// ul {
+// 	list-style-type: none;
+// 	padding: 4px 0;
+// 	margin: 0;
+// }

@@ -1,0 +1,15 @@
+[wip] {
+	position: relative;
+	opacity: 0.8;
+	cursor: not-allowed;
+	pointer-events: none;
+	&::after {
+		content: 'WIP';
+		padding: 2px 4px;
+		margin: 0 10px;
+		border-radius: 3px;
+		background: darkred;
+		color: #fff;
+		font-size: 10px;
+	}
+}
