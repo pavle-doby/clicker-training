@@ -1,11 +1,11 @@
-import { Home } from "@pages/home/Home.page";
-import { Navbar } from "@shared/components/navbar/Navbar.component";
+import { Navbar } from "@/shared/components/Navbar/Navbar.component";
+import { Game } from "./pages/game/Game.page";
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Home></Home>
+      <Game></Game>
     </div>
   );
 }

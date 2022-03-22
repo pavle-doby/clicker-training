@@ -1,0 +1,86 @@
+$bit-triangle-size: 20px;
+$bit-border-size: 4px;
+$bit-size: 20px;
+$bit-thickness: ($bit-size);
+$bit-color: $color-danger;
+$bit-border-color: $color-danger-light;
+
+.digit-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: ($bit-thickness * 2 * 7);
+  width: 160px;
+}
+
+.digit {
+  position: absolute;
+  transform: translateX(50%);
+}
+
+.digit__bit {
+  position: relative;
+  height: $bit-thickness * 2;
+  width: ($bit-thickness * 4);
+  background-color: $bit-color;
+  border: $bit-border-size solid $bit-border-color;
+  box-sizing: border-box;
+
+  opacity: 0.15;
+  transition: opacity 0.3s;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.digit__bit-left {
+  position: absolute;
+  right: 100%;
+  z-index: 1;
+
+  border-top: $bit-triangle-size solid transparent;
+  border-bottom: $bit-triangle-size solid transparent;
+
+  border-right: $bit-triangle-size solid $bit-border-color;
+  transform: translateY(-#{$bit-border-size}) translateX(-#{$bit-border-size});
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    transform: translateX(calc(#{$bit-border-size} * 2)) translateY(-50%);
+    z-index: 0;
+
+    border-top: ($bit-triangle-size - $bit-border-size) solid transparent;
+    border-bottom: ($bit-triangle-size - $bit-border-size) solid transparent;
+
+    border-right: ($bit-triangle-size - $bit-border-size) solid $bit-color;
+  }
+}
+
+.digit__bit-right {
+  position: absolute;
+  left: 100%;
+  z-index: 1;
+
+  border-top: $bit-triangle-size solid transparent;
+  border-bottom: $bit-triangle-size solid transparent;
+
+  border-left: $bit-triangle-size solid $bit-border-color;
+  transform: translateY(-#{$bit-border-size}) translateX(#{$bit-border-size});
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    transform: translateX(calc(-100% - #{$bit-border-size} * 2))
+      translateY(-50%);
+    z-index: 0;
+
+    border-top: ($bit-triangle-size - $bit-border-size) solid transparent;
+    border-bottom: ($bit-triangle-size - $bit-border-size) solid transparent;
+
+    border-left: ($bit-triangle-size - $bit-border-size) solid $bit-color;
+  }
+}
