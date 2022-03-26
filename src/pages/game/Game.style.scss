@@ -12,6 +12,16 @@
   }
 }
 
+.game__overdrive-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include size(48px);
+  font-size: 32px;
+  padding: 12px;
+}
+
 .game__body {
   display: flex;
   flex-direction: column;

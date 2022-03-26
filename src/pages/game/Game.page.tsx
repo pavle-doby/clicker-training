@@ -267,14 +267,14 @@ export function Game({}) {
         <h1 className="heading-hero mb-48">Clicker</h1>
 
         <div className="flex-column flex-center mb-48">
-          <h3
-            className={`heading-3 pl-8 pr-8 pt-4 pb-4 ${
+          <h3 className={`heading-3`}>
+            {isInOverdrive ? "🔥 Overdrive Mode 🔥" : "Overdrive Mode"}
+          </h3>
+          <div
+            className={`game__overdrive-number ${
               isInOverdrive && "c-white bg-success"
             }`}
           >
-            Overdrive Mode {isInOverdrive && "🔥"}
-          </h3>
-          <div className="heading-2">
             <b>{numberOverdrive}</b>
           </div>
         </div>
