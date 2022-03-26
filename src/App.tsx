@@ -4,7 +4,6 @@ import { Game } from "./pages/game/Game.page";
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
       <Game></Game>
     </div>
   );

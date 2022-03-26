@@ -1,3 +1,7 @@
+.game {
+  padding: 24px;
+}
+
 .game__score {
   display: flex;
   align-items: center;
@@ -12,4 +16,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.game__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game__trophy-list {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  overflow-y: auto;
+
+  > * + * {
+    margin-top: 12px;
+  }
+}
+
+.game__trophy-icon {
+  font-size: 32px;
+  color: $color-warning;
+}
+
+.game__click-me {
+  border: none;
+  border-radius: 50%;
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
