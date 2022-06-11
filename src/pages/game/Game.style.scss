@@ -52,6 +52,11 @@
   color: $color-warning;
 }
 
+.game__click-me-wrapper {
+  border-radius: 50%;
+  box-shadow: 0px 2px 14px 0px #8a8a8a;
+}
+
 .game__click-me {
   border: none;
   border-radius: 50%;

@@ -2,6 +2,7 @@ import { NumberDisplay } from "@/shared/components/NumberDisplay/NumberDisplay.c
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { LEVEL_LIST } from "@/shared/enums/Level.enum";
+import Ripples from "react-ripples";
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -248,7 +249,7 @@ export function Game({}) {
   return (
     <div className="game flex-row width-100">
       <div className="flex-column flex-center width-100">
-        <h1 className="heading-h2 mb-48">Trophies</h1>
+        <h2 className="heading-2 mb-48">Trophies</h2>
 
         <div className="game__trophy-list">
           {listTrophy.map((trophy, index) => (
@@ -264,12 +265,12 @@ export function Game({}) {
       </div>
 
       <div className="flex-column flex-center width-100">
-        <h1 className="heading-hero mb-48">Clicker</h1>
+        <h1 className="d-none">Clicker</h1>
 
         <div className="flex-column flex-center mb-48">
-          <h3 className={`heading-3`}>
+          <h2 className={`heading-2`}>
             {isInOverdrive ? "🔥 Overdrive Mode 🔥" : "Overdrive Mode"}
-          </h3>
+          </h2>
           <div
             className={`game__overdrive-number ${
               isInOverdrive && "c-white bg-success"
@@ -283,16 +284,19 @@ export function Game({}) {
           <div className="game__score width-100">
             <NumberDisplay value={number} maxLength={3}></NumberDisplay>
           </div>
-          <button
-            ref={buttonEle}
-            className="game__click-me mt-48"
-            style={{
-              backgroundColor: buttonColor,
-            }}
-          >
-            Click Me!
-            <i className="fa fa-camera-retro"></i>
-          </button>
+          {/* <div className="game__click-me-wrapper mt-48"> */}
+          <Ripples className="game__click-me-wrapper mt-48">
+            <button
+              ref={buttonEle}
+              className="game__click-me"
+              style={{
+                backgroundColor: buttonColor,
+              }}
+            >
+              Click Me!
+            </button>
+          </Ripples>
+          {/* </div> */}
         </div>
       </div>
 
