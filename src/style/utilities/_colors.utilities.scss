@@ -1,0 +1,25 @@
+// TODO: Add colors from _colors.tokens.scss
+$colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  success: $color-success,
+  danger: $color-danger,
+  warning: $color-warning,
+  info: $color-info,
+  light: $color-light,
+  dark: $color-dark,
+  "white": $color-white,
+  "black": $color-black,
+) !default;
+
+@each $color, $color-value in $colors {
+  .c-#{$color} {
+    color: $color-value !important;
+  }
+}
+
+@each $bg-color, $color-value in $colors {
+  .bg-#{$bg-color} {
+    background-color: $color-value !important;
+  }
+}

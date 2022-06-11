@@ -1,0 +1,52 @@
+/**
+ * Check if RTL is enabled.
+ */
+@function _is-rtl() {
+  @return $global-text-direction == "rtl";
+}
+
+/**
+ * Invert side of the margin.
+ */
+@function _invert($side) {
+  @if ($side == "left" or $side == "right") {
+    @return if($side == "left", "right", "left");
+  }
+
+  @return $side;
+}
+
+/**
+ * If RTL Mode.
+ */
+@mixin rtl() {
+  @if (_is-rtl()) {
+    @content;
+  }
+}
+
+/**
+	* Given a property flips its side for RLT.
+	* @example
+	*
+	* @include flip(border-left, 1px solid red)
+	* // => border-right: 1px solid red;
+	*
+	* @include flip(right, 20px)
+	* // => left: 20px;
+ */
+@mixin flip($property, $value) {
+  @include rtl {
+    $left-index: str-index($property, "left");
+    $right-index: str-index($property, "right");
+    @if ($left-index) {
+      $property: str-slice($property, 0, $left-index - 1) + "right";
+    }
+
+    @if ($right-index) {
+      $property: str-slice($property, 0, $right-index - 1) + "left";
+    }
+  }
+
+  #{$property}: $value;
+}

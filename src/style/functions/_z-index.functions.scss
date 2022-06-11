@@ -1,0 +1,40 @@
+/**
+ This is the order at which the elements will stack.
+ List goes from lowest to highest.
+ LOWEST -------------------> HIGHEST
+ *Example:
+ @include z-index('navigation');
+ */
+$z-index-stack: (
+	'sticky-header',
+	'navigation',
+	'popover',
+	'modal',
+	'dropdown',
+	'tooltip'
+);
+
+$z-index-values: ();
+$index-counter: 1000;
+
+@each $index in $z-index-stack {
+	$z-index-values: map-merge(
+		$z-index-values,
+		(
+			$index: $index-counter,
+		)
+	);
+	$index-counter: $index-counter + 10;
+}
+
+@function zIndex($key, $adder: 0) {
+	@if (map-has-key($z-index-values, $key)) {
+		@return map-get($z-index-values, $key) + $adder;
+	} @else {
+		@return auto;
+	}
+}
+
+@mixin z-index($key, $adder: 0) {
+	z-index: zIndex($key, $adder);
+}

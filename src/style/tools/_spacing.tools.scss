@@ -1,0 +1,47 @@
+$spacers: (
+  0px,
+  2px,
+  4px,
+  8px,
+  12px,
+  16px,
+  24px,
+  32px,
+  40px,
+  48px,
+  60px,
+  64px,
+  80px,
+  auto
+) !default;
+$sides: (right, left, bottom, top);
+
+// TODO: If strip-unit is already added, remove it from here.
+@use "sass:math";
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@each $side in $sides {
+  @each $space in $spacers {
+    .m#{str-slice($side,1,1)}-#{strip-unit($space)} {
+      margin-#{$side}: #{$space};
+    }
+
+    .p#{str-slice($side,1,1)}-#{strip-unit($space)} {
+      padding-#{$side}: #{$space};
+    }
+  }
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
